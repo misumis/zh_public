@@ -13,6 +13,9 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    "@next/next/no-document-import-in-page": "off",
+    "@next/next/no-script-in-document": "off",
+    '@next/next/no-img-element': 'off',
     'no-unused-vars': 'off',
     'no-console': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',

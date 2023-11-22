@@ -9,10 +9,14 @@ export type UnstyledLinkProps = {
   openNewTab?: boolean;
   className?: string;
   nextLinkProps?: Omit<LinkProps, 'href'>;
+  isActive?: boolean;
 } & React.ComponentPropsWithRef<'a'>;
 
 const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
-  ({ children, href, openNewTab, className, nextLinkProps, ...rest }, ref) => {
+  (
+    { children, href, openNewTab, className, nextLinkProps, isActive, ...rest },
+    ref,
+  ) => {
     const isNewTab =
       openNewTab !== undefined
         ? openNewTab
@@ -20,8 +24,16 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
 
     if (!isNewTab) {
       return (
-        <Link href={href} {...nextLinkProps}>
-          <a ref={ref} {...rest} className={className}>
+        <Link href={href} {...nextLinkProps} legacyBehavior>
+          <a
+            ref={ref}
+            {...rest}
+            className={clsxm(
+              'transition ease-in-out',
+              isActive && 'border-b-2 border-green-500',
+              className,
+            )}
+          >
             {children}
           </a>
         </Link>
@@ -40,7 +52,7 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
         {children}
       </a>
     );
-  }
+  },
 );
 
 export default UnstyledLink;

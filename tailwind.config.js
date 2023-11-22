@@ -14,11 +14,30 @@ function withOpacityValue(variable) {
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    screens: {
+      xs: '360px',
+      // => @media (min-width: 360px) { ... }
+
+      sm: '576px',
+      // => @media (min-width: 576px) { ... }
+
+      md: '768px',
+      // => @media (min-width: 768px) { ... }
+
+      lg: '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      xl: '1440px',
+      // => @media (min-width: 1440px) { ... }
+    },
     extend: {
       fontFamily: {
-        primary: ['Inter', ...fontFamily.sans],
+        primary: ['Poppins', ...fontFamily.sans],
       },
       colors: {
+        footer: {
+          500: '#252628',
+        },
         primary: {
           // Customize it on globals.css :root
           50: withOpacityValue('--tw-color-primary-50'),

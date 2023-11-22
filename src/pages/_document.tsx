@@ -12,19 +12,20 @@ class MyDocument extends Document {
     return { ...initialProps };
   }
 
+  injectGA = () => {
+    return null;
+  };
+
   render() {
     return (
-      <Html lang='en'>
+      <Html lang='pl'>
         <Head>
           <link
-            rel='preload'
-            href='/fonts/inter-var-latin.woff2'
-            as='font'
-            type='font/woff2'
-            crossOrigin='anonymous'
+            href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=optional'
+            rel='stylesheet'
           />
         </Head>
-        <body>
+        <body className='relative'>
           <Main />
           <NextScript />
         </body>
